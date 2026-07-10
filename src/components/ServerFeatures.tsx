@@ -1,87 +1,8 @@
 import React from 'react';
-import { 
-  Smile, 
-  ShoppingCart, 
-  Package, 
-  Send, 
-  MessageCircle, 
-  MapPin, 
-  ShieldCheck, 
-  Users, 
-  Sparkles, 
-  Target, 
-  PlusCircle 
-} from 'lucide-react';
+import { SERVER_DATA } from '../config/serverData';
 
 export default function ServerFeatures() {
-  const features = [
-    {
-      name: 'GSit',
-      desc: 'Duduk, berbaring, atau bersandar di mana saja di dalam dunia Minecraft untuk mengekspresikan karaktermu.',
-      icon: Smile,
-      color: 'text-cyan-400 bg-cyan-400/10 border-cyan-400/20',
-    },
-    {
-      name: 'Shop',
-      desc: 'Beli dan jual blok atau item berharga menggunakan sistem ekonomi dalam game yang seimbang.',
-      icon: ShoppingCart,
-      color: 'text-amber-400 bg-amber-400/10 border-amber-400/20',
-    },
-    {
-      name: 'Kit',
-      desc: 'Dapatkan paket peralatan awal (starter pack) gratis untuk membantumu langsung memulai petualangan.',
-      icon: Package,
-      color: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20',
-    },
-    {
-      name: 'TPA',
-      desc: 'Kirimkan permintaan teleportasi instan untuk berkumpul dengan teman setimmu dalam sekejap.',
-      icon: Send,
-      color: 'text-purple-400 bg-purple-400/10 border-purple-400/20',
-    },
-    {
-      name: 'MSG',
-      desc: 'Kirimkan pesan rahasia secara langsung (Direct Message) ke player lain dengan aman dan terprivasi.',
-      icon: MessageCircle,
-      color: 'text-pink-400 bg-pink-400/10 border-pink-400/20',
-    },
-    {
-      name: 'Warp',
-      desc: 'Akses cepat ke berbagai lokasi penting server seperti Spawn, Shop, atau area event publik.',
-      icon: MapPin,
-      color: 'text-blue-400 bg-blue-400/10 border-blue-400/20',
-    },
-    {
-      name: 'Claim Land',
-      desc: 'Lindungi rumah dan batas tanah milikmu menggunakan sistem proteksi area untuk mencegah griefing.',
-      icon: ShieldCheck,
-      color: 'text-indigo-400 bg-indigo-400/10 border-indigo-400/20',
-    },
-    {
-      name: 'Team',
-      desc: 'Buat kelompok, jalin aliansi, bangun klan, dan koordinasikan petualangan bersama kawan-kawanmu.',
-      icon: Users,
-      color: 'text-teal-400 bg-teal-400/10 border-teal-400/20',
-    },
-    {
-      name: 'Custom Enchant',
-      desc: 'Tingkatkan kekuatan senjata dan baju zirahmu melampaui batas standar dengan sihir-sihir kustom pilihan.',
-      icon: Sparkles,
-      color: 'text-yellow-400 bg-yellow-400/10 border-yellow-400/20',
-    },
-    {
-      name: 'Bounty',
-      desc: 'Berikan imbalan koin bagi siapa saja yang berhasil melumpuhkan buronan target yang kamu tentukan.',
-      icon: Target,
-      color: 'text-red-400 bg-red-400/10 border-red-400/20',
-    },
-    {
-      name: 'Dan Masih Banyak Lagi',
-      desc: 'Datang dan jelajahi langsung seluruh fitur premium Smawl SMP bersama komunitas pemain aktif kami.',
-      icon: PlusCircle,
-      color: 'text-[#00F0FF] bg-[#00F0FF]/10 border-[#00F0FF]/20 text-glow',
-    },
-  ];
+  const features = SERVER_DATA.features;
 
   return (
     <section id="fitur" className="py-20 relative bg-gradient-to-b from-[#0F1117] to-[#12151D]">

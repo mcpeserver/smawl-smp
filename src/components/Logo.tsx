@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImg from '../assets/images/smawl_smp_logo_1783675891058.jpg';
+import { SERVER_DATA } from '../config/serverData';
 
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg' | 'hero';
@@ -17,6 +17,8 @@ export default function Logo({ size = 'md', className = '' }: LogoProps) {
   } else if (size === 'hero') {
     widthClass = 'w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80';
   }
+
+  const logoImg = SERVER_DATA.images.logo;
 
   return (
     <div className={`relative flex flex-col items-center justify-center select-none ${className}`}>

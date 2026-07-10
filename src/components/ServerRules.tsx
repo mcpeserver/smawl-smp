@@ -1,47 +1,10 @@
 import React from 'react';
-import { ShieldAlert, Info, CheckCircle2, AlertTriangle, Users, BookOpen } from 'lucide-react';
+import { ShieldAlert, Info, AlertTriangle, Users, BookOpen } from 'lucide-react';
+import { SERVER_DATA } from '../config/serverData';
 
 export default function ServerRules() {
-  const serverRules = [
-    {
-      title: 'Dilarang Menghina Orang Lain',
-      description: 'Tidak menghina menggunakan nama orang tua atau sejenisnya. Jaga kesantunan kata-kata.',
-      punishment: 'Pelanggar akan mendapatkan mute selama 10–30 menit.',
-      type: 'Chat Rule',
-    },
-    {
-      title: 'Dilarang Menggunakan Cheat',
-      description: 'Penggunaan segala jenis cheat client, hacked client, hack mod, fly, speed, atau tools ilegal dilarang keras.',
-      punishment: 'Pelanggar langsung dikenakan Ban Permanen tanpa toleransi.',
-      type: 'Anti-Cheat',
-    },
-    {
-      title: 'Dilarang Menggunakan X-Ray',
-      description: 'Penggunaan resource pack X-Ray, modifikasi X-Ray, atau hack penglihatan tembus pandang untuk menambang mineral dilarang.',
-      punishment: 'Pelanggar akan di-Ban dan seluruh hasil tambang di-wipe.',
-      type: 'Fair Play',
-    },
-    {
-      title: 'Bermain dengan Sportif',
-      description: 'Bermainlah dengan adil, tidak mengeksploitasi celah bug server, tidak merusak bangunan orang lain (griefing), atau merusak kesenangan sesama player.',
-      punishment: 'Bermain aman dan jalin persahabatan.',
-      type: 'Gameplay',
-    },
-    {
-      title: 'Tidak Meminta Item kepada Staff',
-      description: 'Dilarang keras meminta barang gratis, alat tempur, koin, atau hak istimewa OP/Creative kepada jajaran Admin maupun Helper.',
-      punishment: 'Permintaan berulang dapat berujung pada hukuman bisu (mute) sementara.',
-      type: 'Staff Respect',
-    },
-  ];
-
-  const groupRules = [
-    { rule: 'Tidak mengirim konten 18+', icon: CheckCircle2 },
-    { rule: 'Tidak menghina orang lain', icon: CheckCircle2 },
-    { rule: 'Tidak melakukan tindakan scam (penipuan)', icon: CheckCircle2 },
-    { rule: 'Tidak membagikan promosi di luar server Smawl SMP', icon: CheckCircle2 },
-    { rule: 'Tidak melakukan penyebaran tag grup tanpa alasan penting', icon: CheckCircle2 },
-  ];
+  const serverRules = SERVER_DATA.serverRules;
+  const groupRules = SERVER_DATA.groupRules;
 
   return (
     <section id="rules" className="py-20 relative overflow-hidden">

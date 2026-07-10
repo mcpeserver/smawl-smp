@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Copy, Terminal, Smartphone, CopyCheck, AlertCircle } from 'lucide-react';
 import Toast from './Toast';
+import { SERVER_DATA } from '../config/serverData';
 
 export default function ServerInfo() {
   const [toastMessage, setToastMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
   const [copiedSection, setCopiedSection] = useState<'both' | 'java' | 'bedrock' | null>(null);
+
+  const connJava = SERVER_DATA.connection.java;
+  const connBedrock = SERVER_DATA.connection.bedrock;
 
   const handleCopy = (text: string, section: 'both' | 'java' | 'bedrock') => {
     navigator.clipboard.writeText(text).then(() => {
@@ -37,7 +41,7 @@ export default function ServerInfo() {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-bold text-[#00F0FF] uppercase tracking-widest font-minecraft block mb-3">CONECTIVITY</span>
           <h2 className="text-3xl md:text-4xl font-bold font-sans text-white tracking-tight mb-4">
-            Informasi Server Smawl SMP
+            Informasi Server {SERVER_DATA.serverName}
           </h2>
           <p className="text-sm md:text-base text-[#B7BDC8]">
             Hubungkan client Minecraft milikmu dan langsung mainkan bersama player lainnya.
@@ -56,8 +60,8 @@ export default function ServerInfo() {
                   <Terminal size={22} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-white font-sans">Java Edition</h3>
-                  <p className="text-xs text-[#B7BDC8]">Untuk PC / Mac / Launcher</p>
+                  <h3 className="font-bold text-lg text-white font-sans">{connJava.title}</h3>
+                  <p className="text-xs text-[#B7BDC8]">{connJava.subtitle}</p>
                 </div>
               </div>
 
@@ -66,7 +70,7 @@ export default function ServerInfo() {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-4 bg-white/[0.02] border border-white/5 rounded-xl">
                   <div>
                     <span className="text-[10px] font-bold text-[#00F0FF] uppercase tracking-wider block mb-0.5">Server IP Address</span>
-                    <p className="font-mono text-sm md:text-base text-white font-medium select-all">play.smawlsmp.my.id</p>
+                    <p className="font-mono text-sm md:text-base text-white font-medium select-all">{connJava.ip}</p>
                   </div>
                   <span className="text-[10px] font-semibold text-white/40 bg-white/5 px-2.5 py-1 rounded border border-white/5 uppercase font-minecraft sm:self-center self-start">DEFAULT</span>
                 </div>
@@ -74,9 +78,9 @@ export default function ServerInfo() {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-4 bg-white/[0.02] border border-white/5 rounded-xl">
                   <div>
                     <span className="text-[10px] font-bold text-[#00F0FF] uppercase tracking-wider block mb-0.5">Port Koneksi</span>
-                    <p className="font-mono text-sm md:text-base text-white font-medium">25604</p>
+                    <p className="font-mono text-sm md:text-base text-white font-medium">{connJava.port}</p>
                   </div>
-                  <span className="text-[10px] font-semibold text-white/40 bg-white/5 px-2.5 py-1 rounded border border-white/5 uppercase font-minecraft sm:self-center self-start">CUSTOM</span>
+                  <span className="text-[10px] font-semibold text-white/40 bg-white/5 px-2.5 py-1 rounded border border-white/5 uppercase font-minecraft sm:self-center self-start">{connJava.portLabel}</span>
                 </div>
               </div>
             </div>
@@ -84,7 +88,7 @@ export default function ServerInfo() {
             {/* Actions */}
             <div>
               <button
-                onClick={() => handleCopy('play.smawlsmp.my.id:25604', 'java')}
+                onClick={() => handleCopy(`${connJava.ip}:${connJava.port}`, 'java')}
                 className="w-full flex items-center justify-center gap-2.5 py-4 bg-white/5 hover:bg-[#00F0FF]/10 text-white hover:text-[#00F0FF] font-bold text-xs uppercase tracking-wider border border-white/10 hover:border-[#00F0FF]/20 rounded-xl transition-all duration-200 cursor-pointer"
               >
                 {copiedSection === 'java' ? (
@@ -111,8 +115,8 @@ export default function ServerInfo() {
                   <Smartphone size={22} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-white font-sans">Bedrock Edition</h3>
-                  <p className="text-xs text-[#B7BDC8]">Untuk HP / Android / iOS / Win10 / Console</p>
+                  <h3 className="font-bold text-lg text-white font-sans">{connBedrock.title}</h3>
+                  <p className="text-xs text-[#B7BDC8]">{connBedrock.subtitle}</p>
                 </div>
               </div>
 
@@ -121,7 +125,7 @@ export default function ServerInfo() {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-4 bg-white/[0.02] border border-white/5 rounded-xl">
                   <div>
                     <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider block mb-0.5">Server IP Address</span>
-                    <p className="font-mono text-sm md:text-base text-white font-medium select-all">play.smawlsmp.my.id</p>
+                    <p className="font-mono text-sm md:text-base text-white font-medium select-all">{connBedrock.ip}</p>
                   </div>
                   <span className="text-[10px] font-semibold text-white/40 bg-white/5 px-2.5 py-1 rounded border border-white/5 uppercase font-minecraft sm:self-center self-start">DEFAULT</span>
                 </div>
@@ -129,9 +133,9 @@ export default function ServerInfo() {
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-4 bg-white/[0.02] border border-white/5 rounded-xl">
                   <div>
                     <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider block mb-0.5">Port Koneksi</span>
-                    <p className="font-mono text-sm md:text-base text-white font-medium">25604</p>
+                    <p className="font-mono text-sm md:text-base text-white font-medium">{connBedrock.port}</p>
                   </div>
-                  <span className="text-[10px] font-semibold text-white/40 bg-white/5 px-2.5 py-1 rounded border border-white/5 uppercase font-minecraft sm:self-center self-start">CUSTOM</span>
+                  <span className="text-[10px] font-semibold text-white/40 bg-white/5 px-2.5 py-1 rounded border border-white/5 uppercase font-minecraft sm:self-center self-start">{connBedrock.portLabel}</span>
                 </div>
               </div>
             </div>
@@ -139,7 +143,7 @@ export default function ServerInfo() {
             {/* Actions */}
             <div>
               <button
-                onClick={() => handleCopy('play.smawlsmp.my.id:25604', 'bedrock')}
+                onClick={() => handleCopy(`${connBedrock.ip}:${connBedrock.port}`, 'bedrock')}
                 className="w-full flex items-center justify-center gap-2.5 py-4 bg-white/5 hover:bg-amber-400/10 text-white hover:text-amber-400 font-bold text-xs uppercase tracking-wider border border-white/10 hover:border-amber-400/20 rounded-xl transition-all duration-200 cursor-pointer"
               >
                 {copiedSection === 'bedrock' ? (
@@ -170,7 +174,7 @@ export default function ServerInfo() {
             </p>
           </div>
           <button
-            onClick={() => handleCopy('play.smawlsmp.my.id', 'both')}
+            onClick={() => handleCopy(connJava.ip, 'both')}
             className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-[#00F0FF] text-[#0F1117] hover:bg-[#00D1FF] font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-[0_4px_14px_rgba(0,240,255,0.2)] cursor-pointer shrink-0"
           >
             {copiedSection === 'both' ? (

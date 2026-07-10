@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowDown, MessageSquare, Info } from 'lucide-react';
 import Logo from './Logo';
-import heroBgImg from '../assets/images/smp_hero_bg_1783675640255.jpg';
+import { SERVER_DATA } from '../config/serverData';
 
 export default function Hero() {
   const handleScrollToInfo = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -17,6 +17,8 @@ export default function Hero() {
     }
   };
 
+  const heroBgImg = SERVER_DATA.images.heroBg;
+
   return (
     <section
       id="beranda"
@@ -26,7 +28,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[#07090F] pointer-events-none z-0">
         <img
           src={heroBgImg}
-          alt="Smawl SMP World Landscape Backdrop"
+          alt={`${SERVER_DATA.serverName} World Landscape Backdrop`}
           className="w-full h-full object-cover opacity-75 md:opacity-80 filter brightness-[0.7] contrast-[1.2] transition-opacity duration-700"
           referrerPolicy="no-referrer"
         />
@@ -51,7 +53,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00F0FF]/15 border border-[#00F0FF]/30 text-[#00F0FF] text-xs font-bold uppercase tracking-widest mb-6 shadow-[0_0_20px_rgba(0,240,255,0.15)]"
           >
             <span className="w-2.5 h-2.5 rounded-full bg-[#00F0FF] animate-ping" />
-            Server Minecraft Survival Premium
+            {SERVER_DATA.serverBadge}
           </motion.div>
 
           {/* Floating Island Sword Logo Centerpiece */}
@@ -71,7 +73,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-base sm:text-lg md:text-xl text-[#D1D5DB] hover:text-white transition-colors max-w-2xl font-sans font-medium leading-relaxed mb-8 px-4 text-shadow"
           >
-            Server Minecraft Survival Java &amp; Bedrock dengan berbagai fitur menarik untuk dimainkan bersama teman.
+            {SERVER_DATA.tagline}
           </motion.p>
 
           {/* Interactive Dual CTA Buttons */}
@@ -83,7 +85,7 @@ export default function Hero() {
           >
             {/* Join WhatsApp Group Button */}
             <a
-              href="https://chat.whatsapp.com/KsxCc5n4cGZ750PwmsX4sh?s=cl&p=a&mlu=4"
+              href={SERVER_DATA.whatsappGroupLink}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2.5 px-8 py-3.5 bg-gradient-to-r from-[#00F0FF] to-[#00D1FF] text-[#0F1117] font-bold text-sm uppercase tracking-wider rounded-xl hover:shadow-[0_0_30px_rgba(0,240,255,0.4)] hover:scale-[1.03] transition-all group duration-300 cursor-pointer shadow-[0_4px_20px_rgba(0,240,255,0.2)]"

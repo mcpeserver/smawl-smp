@@ -1,66 +1,9 @@
 import React from 'react';
-import { Sparkles, ShieldCheck, Gem, Crown, ShoppingBag, Coins, Swords } from 'lucide-react';
+import { SERVER_DATA } from '../config/serverData';
 
 export default function RankPrices() {
-  const tiers = [
-    {
-      name: 'VIP',
-      price: '30K',
-      fullPrice: 'Rp 30.000',
-      icon: Sparkles,
-      color: 'text-cyan-400 bg-cyan-400/10 border-cyan-400/20',
-      shadow: 'hover:shadow-[0_10px_30px_rgba(34,211,238,0.1)]',
-    },
-    {
-      name: 'VIP+',
-      price: '50K',
-      fullPrice: 'Rp 50.000',
-      icon: ShieldCheck,
-      color: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20',
-      shadow: 'hover:shadow-[0_10px_30px_rgba(52,211,153,0.1)]',
-    },
-    {
-      name: 'MVP',
-      price: '80K',
-      fullPrice: 'Rp 80.000',
-      icon: Gem,
-      color: 'text-blue-400 bg-blue-400/10 border-blue-400/20',
-      shadow: 'hover:shadow-[0_10px_30px_rgba(96,165,250,0.1)]',
-    },
-    {
-      name: 'MVP+',
-      price: '100K',
-      fullPrice: 'Rp 100.000',
-      icon: Crown,
-      color: 'text-amber-400 bg-amber-400/10 border-amber-400/20',
-      shadow: 'hover:shadow-[0_10px_30px_rgba(251,191,36,0.15)]',
-      premium: true,
-    },
-  ];
-
-  const donateItems = [
-    {
-      title: 'Beli Rank',
-      desc: 'Dapatkan pangkat istimewa permanen (VIP, VIP+, MVP, MVP+) dengan keuntungan eksklusif di lobi dan dunia survival.',
-      icon: Crown,
-      badge: 'POPULER',
-      color: 'text-amber-400 bg-amber-400/10 border-amber-400/20',
-    },
-    {
-      title: 'Beli SK',
-      desc: 'Beli Surat Kepemilikan (SK) tanah tambahan atau item utilitas khusus untuk menunjang keamanan wilayahmu.',
-      icon: Coins,
-      badge: 'UTILITY',
-      color: 'text-[#00F0FF] bg-[#00F0FF]/10 border-[#00F0FF]/20',
-    },
-    {
-      title: 'Beli Senjata',
-      desc: 'Dapatkan skin kosmetik, senjata custom tangguh, atau perlengkapan perang pelindung premium di dalam game.',
-      icon: Swords,
-      badge: 'COMBAT',
-      color: 'text-red-400 bg-red-400/10 border-red-400/20',
-    },
-  ];
+  const tiers = SERVER_DATA.tiers;
+  const donateItems = SERVER_DATA.donateItems;
 
   return (
     <section id="rank" className="py-20 relative overflow-hidden bg-gradient-to-b from-[#12151D] to-[#0F1117]">
@@ -74,7 +17,7 @@ export default function RankPrices() {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-bold text-[#00F0FF] uppercase tracking-widest font-minecraft block mb-3">Rankings Shop</span>
           <h2 className="text-3xl md:text-4xl font-bold font-sans text-white tracking-tight mb-4">
-            List Rank Server Smawl SMP
+            List Rank Server {SERVER_DATA.serverName}
           </h2>
           <p className="text-sm md:text-base text-[#B7BDC8]">
             Tingkatkan status pangkat karaktermu dan tunjukkan prestisemu di hadapan pemain lainnya.
