@@ -1,0 +1,6 @@
+{
+  "name": "Smawl SMP",
+  "description": "Landing Page Resmi Server Minecraft Smawl SMP - Server Survival Java & Bedrock premium dan modern.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,31 @@
+name: Build and Code Quality Check
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  check-quality:
+    name: Lint, Type Check and Build Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Project Dependencies
+        run: npm ci
+
+      - name: Check Code Syntax & Format (Linter)
+        run: npm run lint
+
+      - name: Compile and Test Production Build
+        run: npm run build
