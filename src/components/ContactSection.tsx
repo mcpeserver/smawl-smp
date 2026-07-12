@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, MessageSquare, ShieldCheck, Heart, ThumbsUp, Send } from 'lucide-react';
+import { SERVER_DATA } from '../config/serverData';
 
 export default function ContactSection() {
   const handleScrollToInfo = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -41,21 +42,21 @@ export default function ContactSection() {
                 <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl flex flex-col sm:flex-row justify-between sm:items-center gap-2">
                   <div>
                     <span className="text-[10px] font-bold text-[#00F0FF] uppercase tracking-wider block mb-0.5">Layanan / Label</span>
-                    <p className="font-minecraft text-sm text-white tracking-wide">Sell Plugin</p>
+                    <p className="font-minecraft text-sm text-white tracking-wide">{SERVER_DATA.contactServiceLabel}</p>
                   </div>
                   <span className="text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded w-fit uppercase font-minecraft">AKTIF</span>
                 </div>
 
                 <div className="p-4 bg-white/[0.02] border border-white/5 rounded-xl">
                   <span className="text-[10px] font-bold text-[#00F0FF] uppercase tracking-wider block mb-0.5">Nomor Telepon</span>
-                  <p className="font-mono text-base md:text-lg text-white font-bold tracking-wide">0882007036590</p>
+                  <p className="font-mono text-base md:text-lg text-white font-bold tracking-wide">{SERVER_DATA.contactNumber}</p>
                 </div>
               </div>
             </div>
 
             <div>
               <a
-                href="https://wa.me/62882007036590"
+                href={SERVER_DATA.contactWhatsAppLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 py-4 bg-white/5 hover:bg-[#00F0FF]/10 text-white hover:text-[#00F0FF] font-bold text-xs uppercase tracking-wider border border-white/10 hover:border-[#00F0FF]/20 rounded-xl transition-all duration-200 cursor-pointer"
@@ -75,7 +76,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg text-white font-sans">Link Resmi Komunitas</h3>
-                  <p className="text-xs text-[#B7BDC8]">Tempat kumpul player Smawl SMP</p>
+                  <p className="text-xs text-[#B7BDC8]">Tempat kumpul player {SERVER_DATA.serverName}</p>
                 </div>
               </div>
 
@@ -83,7 +84,7 @@ export default function ContactSection() {
               <div className="space-y-3 mb-8">
                 {/* Vote Link */}
                 <a
-                  href="https://minecraft-mp.com/server-s359209"
+                  href={SERVER_DATA.voteLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between p-3.5 bg-white/[0.02] hover:bg-[#00F0FF]/5 border border-white/5 hover:border-[#00F0FF]/20 rounded-xl transition-all group/link"
@@ -92,14 +93,14 @@ export default function ContactSection() {
                     <div className="p-1.5 bg-[#00F0FF]/10 text-[#00F0FF] rounded-lg">
                       <ThumbsUp size={14} />
                     </div>
-                    <span className="text-xs md:text-sm text-[#B7BDC8] group-hover/link:text-white font-medium transition-colors">Vote Server Smawl SMP</span>
+                    <span className="text-xs md:text-sm text-[#B7BDC8] group-hover/link:text-white font-medium transition-colors">Vote Server {SERVER_DATA.serverName}</span>
                   </div>
                   <span className="text-[9px] font-bold font-minecraft text-[#00F0FF] group-hover/link:translate-x-1 transition-transform">VOTE &gt;</span>
                 </a>
 
                 {/* WhatsApp group */}
                 <a
-                  href="https://chat.whatsapp.com/KsxCc5n4cGZ750PwmsX4sh?s=cl&p=a&mlu=4"
+                  href={SERVER_DATA.whatsappGroupLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between p-3.5 bg-white/[0.02] hover:bg-[#00F0FF]/5 border border-white/5 hover:border-[#00F0FF]/20 rounded-xl transition-all group/link"
@@ -115,7 +116,7 @@ export default function ContactSection() {
 
                 {/* Discord link */}
                 <a
-                  href="https://discord.gg/Pnz8cPEnK"
+                  href={SERVER_DATA.discordLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between p-3.5 bg-white/[0.02] hover:bg-[#00F0FF]/5 border border-white/5 hover:border-[#00F0FF]/20 rounded-xl transition-all group/link"
@@ -154,7 +155,7 @@ export default function ContactSection() {
             </h2>
             
             <p className="text-xs md:text-sm text-[#B7BDC8] leading-relaxed mb-10 max-w-lg">
-              Smawl SMP siap menyambut kehadiranmu. Ambil pedangmu, rakit perlengkapanmu, kumpulkan teman-temanmu, dan mulailah bertahan hidup bersama ribuan player aktif lainnya!
+              {SERVER_DATA.serverName} siap menyambut kehadiranmu. Ambil pedangmu, rakit perlengkapanmu, kumpulkan teman-temanmu, dan mulailah bertahan hidup bersama ribuan player aktif lainnya!
             </p>
 
             {/* Action Buttons Row */}
@@ -170,7 +171,7 @@ export default function ContactSection() {
 
               {/* Vote Server */}
               <a
-                href="https://minecraft-mp.com/server-s359209"
+                href={SERVER_DATA.voteLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 bg-white/5 text-white hover:text-[#00F0FF] font-bold text-xs uppercase tracking-wider border border-white/10 hover:border-[#00F0FF]/20 hover:bg-[#00F0FF]/5 rounded-xl hover:scale-[1.03] transition-all duration-200 cursor-pointer text-center"
@@ -180,7 +181,7 @@ export default function ContactSection() {
 
               {/* Discord */}
               <a
-                href="https://discord.gg/Pnz8cPEnK"
+                href={SERVER_DATA.discordLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 bg-[#5865F2]/10 hover:bg-[#5865F2]/25 text-[#5865F2] hover:text-white font-bold text-xs uppercase tracking-wider border border-[#5865F2]/30 rounded-xl hover:scale-[1.03] transition-all duration-200 cursor-pointer text-center"

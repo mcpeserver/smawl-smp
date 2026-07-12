@@ -1,33 +1,9 @@
 import React from 'react';
-import { Gift, Video, Radio, Youtube, Hammer } from 'lucide-react';
+import { Gift } from 'lucide-react';
+import { SERVER_DATA } from '../config/serverData';
 
 export default function FreeRank() {
-  const steps = [
-    {
-      title: 'Upload TikTok',
-      description: 'Buat video kreatif bertema Smawl SMP, tambahkan IP server kami, lalu upload ke akun TikTok milikmu.',
-      icon: Video,
-      color: 'bg-gradient-to-r from-pink-500/10 to-transparent border-pink-500/20 text-pink-400',
-    },
-    {
-      title: 'Live TikTok',
-      description: 'Lakukan siaran langsung (live streaming) saat berpetualang atau membangun markas di server Smawl SMP.',
-      icon: Radio,
-      color: 'bg-gradient-to-r from-red-500/10 to-transparent border-red-500/20 text-red-400',
-    },
-    {
-      title: 'Upload YouTube',
-      description: 'Buat video review gameplay, let\'s play, tutorial, atau cinematic pertamamu di Smawl SMP lalu publikasikan ke YouTube.',
-      icon: Youtube,
-      color: 'bg-gradient-to-r from-[#FF0000]/10 to-transparent border-[#FF0000]/20 text-[#FF0000]',
-    },
-    {
-      title: 'Builder dari Event Admin',
-      description: 'Ikuti ajang kompetisi membangun (building contest) resmi dari Admin, tunjukkan bakat arsitekturmu dan raih kemenangan.',
-      icon: Hammer,
-      color: 'bg-gradient-to-r from-blue-500/10 to-transparent border-blue-500/20 text-blue-400',
-    },
-  ];
+  const steps = SERVER_DATA.freeRankSteps;
 
   return (
     <section className="py-20 relative overflow-hidden bg-gradient-to-b from-[#12151D] to-[#0F1117]">

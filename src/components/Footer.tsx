@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Globe, Github, MessageSquare, Briefcase, ExternalLink, ShieldCheck } from 'lucide-react';
 import Logo from './Logo';
 import { DeveloperConfig } from '../types';
+import { SERVER_DATA } from '../config/serverData';
 
 interface FooterProps {
   setCurrentPage: (page: 'beranda' | 'koneksi' | 'fitur' | 'rules' | 'store' | 'kontak') => void;
@@ -43,6 +44,9 @@ export default function Footer({ setCurrentPage }: FooterProps) {
     });
   };
 
+  const firstWord = SERVER_DATA.serverName.split(' ')[0];
+  const remainingWords = SERVER_DATA.serverName.split(' ').slice(1).join(' ');
+
   return (
     <footer className="bg-[#0B0D13] border-t border-white/5 pt-16 pb-8 text-sans relative overflow-hidden">
       {/* Background ambient lighting */}
@@ -56,16 +60,16 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             <div className="flex items-center gap-3.5 mb-4">
               <Logo size="sm" />
               <span className="font-minecraft text-white text-lg tracking-wider font-bold">
-                SMAWL <span className="text-[#00F0FF]">SMP</span>
+                {firstWord} {remainingWords && <span className="text-[#00F0FF]">{remainingWords}</span>}
               </span>
             </div>
             
             <p className="text-xs md:text-sm text-[#B7BDC8] mb-6 max-w-sm leading-relaxed">
-              Server Minecraft Survival Java &amp; Bedrock premium dengan berbagai fitur menarik untuk dimainkan bersama teman secara seru dan gratis.
+              {SERVER_DATA.tagline}
             </p>
 
             <span className="text-xs text-white/50 font-medium">
-              &copy; 2026 Smawl SMP. All rights reserved.
+              &copy; 2026 {SERVER_DATA.serverName}. All rights reserved.
             </span>
           </div>
 

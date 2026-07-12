@@ -1,5 +1,6 @@
 import React from 'react';
 import { Shield, Hammer } from 'lucide-react';
+import { SERVER_DATA } from '../config/serverData';
 
 interface StaffMember {
   name: string;
@@ -8,13 +9,7 @@ interface StaffMember {
 }
 
 export default function StaffSection() {
-  const staffList: StaffMember[] = [
-    { name: 'BocilRusuh', role: 'Owner / Admin', skinSeed: 'bocil' },
-    { name: 'JesszMC', role: 'Owner / Admin', skinSeed: 'jessz' },
-    { name: 'zrexsk', role: 'Helper', skinSeed: 'zrex' },
-    { name: 'kaikai', role: 'Helper', skinSeed: 'kaikai' },
-    { name: 'Sopyan', role: 'Helper', skinSeed: 'sopyan' },
-  ];
+  const staffList = SERVER_DATA.staffList as StaffMember[];
 
   // Generates custom Minecraft pixel face SVG based on seed
   const renderMinecraftFace = (seed: string) => {

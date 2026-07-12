@@ -11,7 +11,8 @@ import StaffSection from './components/StaffSection';
 import RankPrices from './components/RankPrices';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-import { Network, Zap, BookOpen, ShoppingBag, MessageSquare, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { SERVER_DATA } from './config/serverData';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<'beranda' | 'koneksi' | 'fitur' | 'rules' | 'store' | 'kontak'>('beranda');
@@ -24,43 +25,7 @@ export default function App() {
     });
   };
 
-  const portalCards = [
-    {
-      id: 'koneksi' as const,
-      title: 'Koneksi Server',
-      desc: 'Dapatkan IP & Port resmi untuk Java & Bedrock dengan fitur salin instan.',
-      icon: Network,
-      color: 'from-cyan-500/10 to-blue-500/10 border-cyan-500/20 text-[#00F0FF]',
-    },
-    {
-      id: 'fitur' as const,
-      title: 'Fitur Unggulan',
-      desc: 'Jelajahi berbagai sistem seru seperti GSit, Player Shop, dan Custom Items kami.',
-      icon: Zap,
-      color: 'from-amber-500/10 to-orange-500/10 border-amber-500/20 text-amber-400',
-    },
-    {
-      id: 'rules' as const,
-      title: 'Aturan & Rank Gratis',
-      desc: 'Pelajari regulasi komunitas dan cara mendapatkan kedudukan VIP secara cuma-cuma.',
-      icon: BookOpen,
-      color: 'from-emerald-500/10 to-teal-500/10 border-emerald-500/20 text-emerald-400',
-    },
-    {
-      id: 'store' as const,
-      title: 'Rank Store & Staff',
-      desc: 'Dukung keberlangsungan server, lihat harga VIP Rank, serta roster moderator kami.',
-      icon: ShoppingBag,
-      color: 'from-purple-500/10 to-pink-500/10 border-purple-500/20 text-purple-400',
-    },
-    {
-      id: 'kontak' as const,
-      title: 'Hubungi Kami',
-      desc: 'Kontak WhatsApp official, Vote server harian, dan link Discord komunitas Smawl.',
-      icon: MessageSquare,
-      color: 'from-indigo-500/10 to-violet-500/10 border-indigo-500/20 text-indigo-400',
-    },
-  ];
+  const portalCards = SERVER_DATA.portalCards;
 
   return (
     <div className="min-h-screen bg-[#0F1117] relative selection:bg-[#00F0FF]/30 selection:text-white flex flex-col justify-between overflow-x-hidden">
@@ -92,7 +57,7 @@ export default function App() {
                   <div className="text-center max-w-2xl mx-auto mb-12">
                     <span className="text-xs font-bold text-[#00F0FF] uppercase tracking-widest font-mono">PILIH MENU UTAMA</span>
                     <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-2 font-sans tracking-tight">
-                      Jelajahi Smawl SMP
+                      Jelajahi {SERVER_DATA.serverName}
                     </h2>
                     <p className="text-xs sm:text-sm text-[#B7BDC8] mt-3">
                       Pilih dari menu di bawah untuk langsung menuju halaman informasi spesifik secara instan dan bebas lag.

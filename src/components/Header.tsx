@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Terminal, ExternalLink } from 'lucide-react';
 import Logo from './Logo';
 import DeveloperModal from './DeveloperModal';
+import { SERVER_DATA } from '../config/serverData';
 
 interface HeaderProps {
   currentPage: 'beranda' | 'koneksi' | 'fitur' | 'rules' | 'store' | 'kontak';
@@ -44,6 +45,9 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
     });
   };
 
+  const firstWord = SERVER_DATA.serverName.split(' ')[0];
+  const remainingWords = SERVER_DATA.serverName.split(' ').slice(1).join(' ');
+
   return (
     <>
       <header
@@ -60,11 +64,11 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
           <button
             onClick={() => handlePageChange('beranda')}
             className="flex items-center gap-3 group focus:outline-none cursor-pointer"
-            aria-label="Kembali ke Beranda Smawl SMP"
+            aria-label={`Kembali ke Beranda ${SERVER_DATA.serverName}`}
           >
             <Logo size="sm" />
             <span className="font-mono font-black text-white text-base sm:text-lg tracking-widest group-hover:text-[#00F0FF] transition-colors uppercase">
-              SMAWL <span className="text-[#00F0FF]">SMP</span>
+              {firstWord} {remainingWords && <span className="text-[#00F0FF]">{remainingWords}</span>}
             </span>
           </button>
 

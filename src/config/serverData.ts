@@ -3,7 +3,7 @@ import {
   Network, Zap, BookOpen, ShoppingBag, MessageSquare,
   Smile, ShoppingCart, Package, Send, MessageCircle, MapPin, ShieldCheck, Users, Sparkles, Target, PlusCircle,
   CheckCircle2, Crown, Coins, Swords,
-  Hammer, Video, Radio, Youtube
+  Hammer, Video, Radio, Youtube, Gem
 } from 'lucide-react';
 
 // Import local image assets cleanly
@@ -329,5 +329,14 @@ export const SERVER_DATA = {
       icon: Hammer,
       color: 'bg-gradient-to-r from-blue-500/10 to-transparent border-blue-500/20 text-blue-400',
     },
-  ]
+  ],
+
+  // Keep Inventory Card configuration
+  keepInventoryInfo: {
+    tag: 'Extreme Challenge',
+    title: 'World Tanpa Keep Inventory',
+    description: 'Tantang dirimu dan uji ketangguhan bertahan hidup di dimensi berbahaya. Di dunia ini, jika kamu gugur, item kamu akan tertinggal di tempat kejadian! Bersiaplah dengan matang sebelum melangkah masuk.',
+    dimensionLabel: 'Dimensi Tujuan',
+    dimensionName: 'NETHER',
+  }
 };

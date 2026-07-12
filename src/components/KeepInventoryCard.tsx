@@ -1,7 +1,10 @@
 import React from 'react';
 import { Flame, Compass } from 'lucide-react';
+import { SERVER_DATA } from '../config/serverData';
 
 export default function KeepInventoryCard() {
+  const info = SERVER_DATA.keepInventoryInfo;
+
   return (
     <div className="max-w-4xl mx-auto px-4 mb-20">
       <div className="relative overflow-hidden bg-gradient-to-br from-[#1C1115] to-[#120B0D] border border-red-500/20 rounded-2xl p-6 md:p-10 shadow-[0_15px_40px_rgba(239,68,68,0.06)] flex flex-col md:flex-row items-center justify-between gap-8 group">
@@ -14,15 +17,15 @@ export default function KeepInventoryCard() {
         <div className="flex-1 text-center md:text-left relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-bold font-minecraft uppercase tracking-wider mb-4">
             <Flame size={12} className="animate-pulse" />
-            Extreme Challenge
+            {info.tag}
           </div>
           
           <h3 className="text-2xl md:text-3xl font-bold font-sans text-white tracking-tight mb-3">
-            World Tanpa Keep Inventory
+            {info.title}
           </h3>
           
           <p className="text-sm text-[#B7BDC8] font-sans leading-relaxed max-w-xl">
-            Tantang dirimu dan uji ketangguhan bertahan hidup di dimensi berbahaya. Di dunia ini, jika kamu gugur, item kamu akan tertinggal di tempat kejadian! Bersiaplah dengan matang sebelum melangkah masuk.
+            {info.description}
           </p>
         </div>
 
@@ -36,9 +39,9 @@ export default function KeepInventoryCard() {
               <Compass size={28} />
             </div>
             
-            <span className="text-xs text-[#B7BDC8] font-bold uppercase tracking-widest font-sans mb-1">Dimensi Tujuan</span>
+            <span className="text-xs text-[#B7BDC8] font-bold uppercase tracking-widest font-sans mb-1">{info.dimensionLabel}</span>
             <p className="font-minecraft text-xl text-red-500 font-bold tracking-wider text-glow uppercase">
-              NETHER
+              {info.dimensionName}
             </p>
           </div>
 
